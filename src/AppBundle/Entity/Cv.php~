@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cv
+ *
+ * @ORM\Table(name="cv")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CvRepository")
+ */
+class Cv
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomCv", type="string", length=255)
+     */
+    private $nomCv;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Templates",cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $templateId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cvFichier", type="text")
+     */
+    private $cvFichier;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $content;
+
+   /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User",cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userId;
+
+}

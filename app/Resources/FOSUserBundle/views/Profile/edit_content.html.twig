@@ -1,0 +1,10 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h4> Modifier votre profil </h4>
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <button type="button" class="btn btn-success btn-rounded waves-light waves-effect w-md"  style="display: block; margin: 0 auto;">Mise a jours</button>
+
+    </div>
+{{ form_end(form) }}
+

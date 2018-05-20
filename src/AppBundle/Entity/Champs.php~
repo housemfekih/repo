@@ -1,0 +1,46 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Champs
+ *
+ * @ORM\Table(name="champs")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ChampsRepository")
+ */
+class Champs
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomChamps", type="string", length=255)
+     */
+    private $nomChamps;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeChamps", type="string", length=255)
+     */
+    private $typeChamps; /**
+     * @var string
+     *
+     * @ORM\Column(name="longeurChamps", type="string", length=255)
+     */
+    private $longeurChamps;
+
+
+
+
+
+}

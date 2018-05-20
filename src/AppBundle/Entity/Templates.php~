@@ -1,0 +1,46 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Templates
+ *
+ * @ORM\Table(name="templates")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TemplatesRepository")
+ */
+class Templates
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomTemlate", type="string", length=255)
+     */
+    private $nomTemplate;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "text/html" })
+     */
+    private $fichierNom;
+
+   /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Groupes",cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $groupeId;
+
+}
